@@ -4,13 +4,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   int heightSlider = 120;
-  int weight=30;
+  int age = 30;
+  int weight = 50;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: FaIcon(
-                            FontAwesomeIcons.venus,
+                            FontAwesomeIcons.addressBook,
                             color: Colors.white,
                             size: 80,
                           ),
@@ -112,30 +114,54 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(Colour: blueColor, cardChid: Column(
-                    children: [
-                      Text("Age",
-                      style: textStyle,),
-                      Text('${weight}',style: numtextStyle,),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          FloatingActionButton(onPressed:() {}
-                          ,child: Icon(Icons.add),
-                            backgroundColor: Colors.grey,
-                          ),
-                          FloatingActionButton(onPressed:() {}
-                            ,child: Icon(Icons.minsc),
-                            backgroundColor: Colors.grey,
-                          )
-                        ],
-
-                      )
-                    ],
-                  )),
+                  child: ReusableCard(
+                    Colour: blueColor,
+                    cardChid: Column(
+                      children: [
+                        Text("Age", style: textStyle),
+                        Text('${age}', style: numtextStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RoundButton(icon: FontAwesomeIcons.plus),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RoundButton(icon: FontAwesomeIcons.minus),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(Colour: blueColor, cardChid: Column()),
+                  child: ReusableCard(
+                    Colour: blueColor,
+                    cardChid: Column(
+                      children: [
+                        Text("Weight", style: textStyle),
+                        Text('${weight}', style: numtextStyle),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RoundButton(icon: FontAwesomeIcons.plus),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RoundButton(icon: FontAwesomeIcons.minus),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -146,6 +172,16 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               color: Colors.pink,
               borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(
+                "Calculate",
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
         ],
@@ -159,6 +195,7 @@ class ReusableCard extends StatelessWidget {
 
   Color Colour;
   final Widget cardChid;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -167,6 +204,24 @@ class ReusableCard extends StatelessWidget {
         color: Colour,
         borderRadius: BorderRadius.circular(10),
       ),
+    );
+  }
+}
+
+class RoundButton extends StatelessWidget {
+  const RoundButton({super.key, required this.icon});
+
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      elevation: 6.0,
+      child: Icon(icon),
+      onPressed: () {},
+      constraints: BoxConstraints(minWidth: 56.0, minHeight: 56.0),
+      shape: CircleBorder(),
+      fillColor: Colors.blueGrey,
     );
   }
 }
