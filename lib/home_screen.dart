@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI Calculator"),
+        title: Text("BMI Calculator",style: TextStyle(color: Colors.white)),
         backgroundColor: darkBlueColor,
       ),
       backgroundColor: darkBlueColor,
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Text("Male", style: textStyle),
+                          child: Text("Male",style: textStyle,),
                         ),
                       ],
                     ),
@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: FaIcon(
-                            FontAwesomeIcons.addressBook,
+                            FontAwesomeIcons.venus,
                             color: Colors.white,
                             size: 80,
                           ),
@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Center(
               child: Text(
-                "Calculate",
+                "Calculate BMI",
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -199,6 +199,7 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: cardChid,
       margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colour,
